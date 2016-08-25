@@ -5,6 +5,8 @@ setup(
     version = "0.1",
     packages = find_packages(),
 
+    test_suite = "tests.suite.suite",
+
     # metadata for upload to PyPI
     author = "Giuseppe Pagano",
     author_email = "giuseppe.pagano.p@gmail.com",
