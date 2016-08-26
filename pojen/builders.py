@@ -29,4 +29,4 @@ def generate_class(classname, fields, public_fields=False, getset=True):
         for varname, vartype in fields.items():
             _methods += "{}\n\n{}\n\n".format(getter(varname, vartype), setter(varname, vartype))
 
-    return "public class {}{{\n{}\n\n{}}}".format(classname, _fields, _methods)
+    return "public class {}{{\n{}\n\n{}}}".format(classname.title(), _fields, _methods)
