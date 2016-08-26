@@ -5,7 +5,7 @@ setup(
     version = "0.1",
     packages = find_packages(),
 
-    test_suite = "tests.suite.suite",
+    test_suite = "tests",
 
     # metadata for upload to PyPI
     author = "Giuseppe Pagano",
