@@ -7,6 +7,12 @@ setup(
 
     test_suite = "tests",
 
+    entry_points={
+        'console_scripts': [
+            'pojen = pojen:main',
+        ],
+    },
+
     # metadata for upload to PyPI
     author = "Giuseppe Pagano",
     author_email = "giuseppe.pagano.p@gmail.com",
