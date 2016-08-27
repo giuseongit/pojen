@@ -7,6 +7,9 @@ def method(method_name, acc_modifier, return_type, params, body):
 
     return """    {} {} {}({}){{{}}}""".format(acc_modifier, return_type, method_name, param_string, body)
 
+def generate_import(package):
+    return "import {};".format(package)
+
 def getter(varname, vartype):
     body = "\n        return this.{};\n    ".format(varname)
     return method("get"+(varname.title()), "public", vartype, None, body)
