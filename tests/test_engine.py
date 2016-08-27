@@ -31,10 +31,28 @@ class EngineTestCase(TestCase):
             }
         }
 
-        dt = engine.prepare_structure("top", example)
+        example2 = {
+            "keyone": {
+                "subkeyone": "subvalone",
+                "subkeytwo": {
+                    "nested": "0.3"
+                }
+            }
+        }
+
+        dt = engine.prepare_structure(example, "top")
+        dt2 = engine.prepare_structure(example2)
+
         expected_result = [
-            ('top', {'keyone': 'ArrayList<Integer>', 'keytwo': 'String', 'keyfour': 'Keyfour', 'keythree': 'int'}),
-            ('keyfour', {'subkeyone': 'String', 'subkeytwo': 'Subkeytwo'}),
-            ('subkeytwo', {'nested': 'float'})
+            ('top', {'keyone': 'ArrayList<Integer>', 'keytwo': 'String', 'keyfour': 'Keyfour', 'keythree': 'int'}, ["java.util.ArrayList"]),
+            ('keyfour', {'subkeyone': 'String', 'subkeytwo': 'Subkeytwo'}, []),
+            ('subkeytwo', {'nested': 'float'}, [])
         ]
+
+        expected_result2 = [
+            ('keyone', {'subkeyone': 'String', 'subkeytwo': 'Subkeytwo'}, []),
+            ('subkeytwo', {'nested': 'float'}, [])
+        ]
+
+        self.assertEquals(dt2, expected_result2)
         self.assertEquals(dt, expected_result)
